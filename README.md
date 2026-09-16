@@ -52,11 +52,7 @@ cloud-db-benchmark/
 ├── requirements.txt            # Thư viện Python phụ thuộc
 ├── .gitignore                  # Cấu hình bỏ qua các file tạm, log, dataset lớn
 ├── README.md                   # Tài liệu hướng dẫn chính của Repository
-├── TODO.md                     # Danh sách 37 đầu việc & tiến độ tổng thể (WBS)
-├── PROGRESS.md                 # Nhật ký tiến trình thực hiện theo thời gian thực
-├── explain.md                  # Bản giải thích chi tiết về bản chất và cách hoạt động
-├── TAI_LIEU_KHAO_SAT.md        # Tổng hợp 6 nghiên cứu khoa học tiền đề IEEE/ACM
-└── DE_CUONG_DO_AN.md           # Bản Đề cương chi tiết nộp Giảng viên hướng dẫn
+└── THIET_KE_CSDL_VA_USECASE.md # Đặc tả nghiệp vụ, Use Case, Schema & Chỉ mục
 ```
 
 ---
@@ -88,13 +84,9 @@ Nhờ cơ chế **Infrastructure as Code (IaC)**, bạn không cần cài đặt
 
 ---
 
-## 📖 4. Tài Liệu Nghiên Cứu & Quản Lý Dự Án
-
-- **Đề cương chi tiết nộp GVHD:** Xem [DE_CUONG_DO_AN.md](DE_CUONG_DO_AN.md)
-- **Cơ sở khoa học & Trích dẫn IEEE/ACM:** Xem [TAI_LIEU_KHAO_SAT.md](TAI_LIEU_KHAO_SAT.md)
-- **Tiến độ công việc (TODO):** Xem [TODO.md](TODO.md)
-- **Nhật ký tiến trình thời gian thực:** Xem [PROGRESS.md](PROGRESS.md)
-- **Giải thích trực quan bản chất đề tài:** Xem [explain.md](explain.md)
+## 📖 4. Tài Liệu Thiết Kế Kỹ Thuật
+- **Đặc tả nghiệp vụ, Use Case & Mô hình CSDL:** Xem [THIET_KE_CSDL_VA_USECASE.md](THIET_KE_CSDL_VA_USECASE.md)
+- **Mã nguồn Lược đồ CSDL:** Xem thư mục `data/schemas/` (`postgresql_schema.sql`, `mongodb_schema.js`, `neo4j_schema.cypher`)
 
 ---
 

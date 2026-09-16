@@ -76,3 +76,6 @@ desktop.ini
 .idea/
 *.sublime-workspace
 *.sublime-project
+
+# Private & Internal Documentation (DO NOT COMMIT)
+private_notes/
