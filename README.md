@@ -7,7 +7,7 @@
 ![MongoDB](https://img.shields.io/badge/MongoDB-7.0-green.svg)
 ![Neo4j](https://img.shields.io/badge/Neo4j-5.x-lightblue.svg)
 
-> **Đồ án Chuyên ngành Kỹ thuật Phần mềm - Trường Đại học Phenikaa**  
+> **Đồ án Chuyên ngành Kỹ thuật Phần mềm - Trường Đại học Công Nghệ Thông Tin Phenikaa**  
 > **Đề tài:** Nghiên cứu, đánh giá hiệu năng các mô hình cơ sở dữ liệu quan hệ, phi quan hệ và đồ thị trên môi trường phát triển ảo hóa Cloud-based (GitHub Codespaces).
 
 ---
@@ -91,7 +91,7 @@ Nhờ cơ chế **Infrastructure as Code (IaC)**, bạn không cần cài đặt
 ---
 
 ## 👨‍💻 Tác Giả & Đơn Vị Đào Tạo
-- **Sinh viên thực hiện:** `[Họ và tên sinh viên]` (`[Mã sinh viên]`)
+- **Sinh viên thực hiện:** Vũ Đức Hiếu (23010226)
 - **Ngành:** Kỹ thuật Phần mềm - Khoa Công nghệ Thông tin
-- **Trường:** Trường Đại học Phenikaa (Phenikaa University)
-- **Giảng viên hướng dẫn:** `[TS/ThS. Giảng viên hướng dẫn]`
+- **Trường:** Trường Đại học Công Nghệ Thông Tin Phenikaa 
+- **Giảng viên hướng dẫn:** TS/ThS. Nguyễn Lệ Thu
