@@ -1,0 +1,46 @@
+{
+  "name": "Cloud DB Benchmark (PostgreSQL, MongoDB, Neo4j)",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "workspace",
+  "workspaceFolder": "/workspace",
+  "shutdownAction": "stopCompose",
+
+  "forwardPorts": [5432, 27017, 7474, 7687],
+  "portsAttributes": {
+    "7474": {
+      "label": "Neo4j Browser UI",
+      "onAutoForward": "notify"
+    },
+    "5432": {
+      "label": "PostgreSQL Port",
+      "onAutoForward": "silent"
+    },
+    "27017": {
+      "label": "MongoDB Port",
+      "onAutoForward": "silent"
+    },
+    "7687": {
+      "label": "Neo4j Bolt Port",
+      "onAutoForward": "silent"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ckolkman.vscode-postgres",
+        "mongodb.mongodb-vscode",
+        "neo4j.cypher-query-language"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+
+  "postCreateCommand": "pip install --no-cache-dir -r requirements.txt",
+  "remoteUser": "vscode"
+}

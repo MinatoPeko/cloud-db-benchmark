@@ -51,14 +51,15 @@ neo4j_logs/
 neo4j_plugins/
 
 # Large Generated Datasets (Raw intermediate dumps)
-data/generated/*.csv
-data/generated/*.json
+data/generated/*
 !data/generated/.gitkeep
 
 # Benchmark Results & Logs
-results/raw_*.json
-results/raw_*.csv
-results/logs/*.log
+results/raw_*
+results/data/*
+!results/data/.gitkeep
+results/logs/*
+!results/logs/.gitkeep
 !results/.gitkeep
 !results/charts/.gitkeep
 
@@ -79,3 +80,7 @@ desktop.ini
 
 # Private & Internal Documentation (DO NOT COMMIT)
 private_notes/
+private_note/
+BAO_CAO_TOT_NGHIEP_PHENIKAA.*
+*.docx
+*.pdf

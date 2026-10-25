@@ -7,7 +7,7 @@
 ![MongoDB](https://img.shields.io/badge/MongoDB-7.0-green.svg)
 ![Neo4j](https://img.shields.io/badge/Neo4j-5.x-lightblue.svg)
 
-> **Đồ án Chuyên ngành Kỹ thuật Phần mềm - Trường Đại học Công Nghệ Thông Tin Phenikaa**  
+> **Đồ án Tốt nghiệp Chuyên ngành Kỹ thuật Phần mềm - Trường Đại học Phenikaa**  
 > **Đề tài:** Nghiên cứu, đánh giá hiệu năng các mô hình cơ sở dữ liệu quan hệ, phi quan hệ và đồ thị trên môi trường phát triển ảo hóa Cloud-based (GitHub Codespaces).
 
 ---
@@ -35,20 +35,20 @@ Dựa trên bài toán thực tế **Mạng xã hội ảo (Social Network)** v�
 cloud-db-benchmark/
 ├── .devcontainer/              # Cấu hình tự động hóa môi trường GitHub Codespaces
 │   ├── devcontainer.json       # Thiết lập VS Code Web, Extensions & Lifecycle hooks
-│   └── Dockerfile              # Container image cho môi trường Benchmark Runner
+│   └── docker-compose.yml      # Cấu hình 3 CSDL chạy ngầm (Postgres, Mongo, Neo4j)
 ├── data/                       # Dữ liệu thực nghiệm
 │   ├── schemas/                # Lược đồ CSDL (SQL DDL, Mongo Validator, Cypher Constraints)
 │   ├── generated/              # Dữ liệu giả lập xuất ra (CSV, JSON)
 │   └── datagen.py              # Script sinh dữ liệu giả lập (Faker & NetworkX)
 ├── benchmarks/                 # Bộ công cụ đo kiểm hiệu năng (Benchmark Harness)
 │   ├── queries/                # Danh mục truy vấn chuẩn hóa (SQL, MQL, Cypher)
+│   ├── healthcheck.py          # Script kiểm tra trạng thái 3 CSDL khi vừa mở Codespaces
 │   ├── runner.py               # Benchmark engine thực thi tải và bấm giờ
 │   └── monitor.py              # Trình giám sát tài nguyên CPU/RAM (psutil)
 ├── results/                    # Kết quả đo kiểm và trực quan hóa
 │   ├── data/                   # File log kết quả thô (raw CSV/JSON)
 │   ├── charts/                 # Biểu đồ phân tích xuất ra (300 DPI)
 │   └── visualize.py            # Script vẽ biểu đồ (Matplotlib & Seaborn)
-├── docker-compose.yml          # Hạ tầng 3 CSDL (PostgreSQL, MongoDB, Neo4j)
 ├── requirements.txt            # Thư viện Python phụ thuộc
 ├── .gitignore                  # Cấu hình bỏ qua các file tạm, log, dataset lớn
 ├── README.md                   # Tài liệu hướng dẫn chính của Repository
@@ -59,26 +59,32 @@ cloud-db-benchmark/
 
 ## ⚡ 3. Hướng Dẫn Khởi Động "Một Thao Tác" (Quickstart on Codespaces)
 
-Nhờ cơ chế **Infrastructure as Code (IaC)**, bạn không cần cài đặt bất kỳ phần mềm nào vào máy tính cá nhân:
+Nhờ cơ chế **Dev Container / Infrastructure as Code (IaC)**, bạn không cần cài đặt bất kỳ phần mềm nào vào máy tính cá nhân:
 
 1. Click vào huy hiệu **[Open in GitHub Codespaces](https://github.com/codespaces/new)** ở đầu trang.
 2. Chọn máy ảo cấu hình **4 cores, 16 GB RAM**.
-3. Codespaces sẽ tự động khởi động và chạy nền toàn bộ 3 CSDL qua `docker-compose.yml`:
+3. Codespaces sẽ tự động khởi động và chạy nền toàn bộ 3 CSDL trong môi trường Dev Container:
    - **PostgreSQL 16:** Cổng `5432`
    - **MongoDB 7.0:** Cổng `27017`
    - **Neo4j 5.x:** Cổng `7474` (Web Browser) & `7687` (Bolt Protocol)
-4. Mở Terminal trong VS Code và gõ lệnh chạy kiểm thử:
+4. Mở Terminal trong VS Code và kiểm tra hệ thống:
    ```bash
+   # 0. Kiểm tra kết nối tới cả 3 CSDL
+   python benchmarks/healthcheck.py
+
    # 1. Sinh dữ liệu mẫu quy mô nhỏ (Small: 10k entities)
    python data/datagen.py --scale small
 
    # 2. Nạp dữ liệu vào cả 3 database
    python data/import_all.py --scale small
 
-   # 3. Chạy toàn bộ kịch bản benchmark
-   python benchmarks/runner.py --all
+   # 3. Đối soát toàn vẹn dữ liệu (Checksum 100%)
+   python data/verify_data.py
 
-   # 4. Trực quan hóa và xuất biểu đồ kết quả
+   # 4. Chạy toàn bộ kịch bản benchmark (20 vòng lặp)
+   python benchmarks/runner.py --scale small --rounds 20 --all
+
+   # 5. Trực quan hóa và xuất 4 biểu đồ kết quả (300 DPI)
    python results/visualize.py
    ```
 
@@ -91,7 +97,8 @@ Nhờ cơ chế **Infrastructure as Code (IaC)**, bạn không cần cài đặt
 ---
 
 ## 👨‍💻 Tác Giả & Đơn Vị Đào Tạo
-- **Sinh viên thực hiện:** Vũ Đức Hiếu (23010226)
-- **Ngành:** Kỹ thuật Phần mềm - Khoa Công nghệ Thông tin
-- **Trường:** Trường Đại học Công Nghệ Thông Tin Phenikaa 
-- **Giảng viên hướng dẫn:** TS/ThS. Nguyễn Lệ Thu
+- **Sinh viên thực hiện:** Vũ Đức Hiếu (MSV: 23010226)
+- **Lớp:** K17-KTPM(EL)_1
+- **Ngành đào tạo:** Kỹ thuật Phần mềm - Khoa Công nghệ Thông tin
+- **Trường:** Trường Đại học Phenikaa
+- **Giảng viên hướng dẫn:** TS. Nguyễn Lệ Thu

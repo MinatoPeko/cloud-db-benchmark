@@ -1,0 +1,28 @@
+# ============================================================================
+# ĐỒ ÁN CHUYÊN NGÀNH KỸ THUẬT PHẦN MỀM - ĐẠI HỌC PHENIKAA
+# Danh mục thư viện Python phụ thuộc cho Hệ thống Benchmark & Data Pipeline
+# ============================================================================
+
+# Database Native Drivers (Trực tiếp, hiệu năng cao)
+asyncpg>=0.29.0
+psycopg2-binary>=2.9.9
+pymongo>=4.7.2
+motor>=3.4.0
+neo4j>=5.20.0
+
+# Giám sát tài nguyên hệ thống (CPU, RAM, Disk I/O)
+psutil>=5.9.8
+
+# Sinh dữ liệu giả lập & Đồ thị thực tế (Data Generator)
+Faker>=25.2.0
+networkx>=3.3
+
+# Xử lý số liệu & Trực quan hóa biểu đồ (Data Analysis & Visualization)
+pandas>=2.2.2
+matplotlib>=3.8.4
+seaborn>=0.13.2
+tabulate>=0.9.0
+
+# Giao diện dòng lệnh & Thanh tiến trình chuyên nghiệp (CLI UX)
+tqdm>=4.66.4
+rich>=13.7.1
